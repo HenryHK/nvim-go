@@ -129,6 +129,8 @@ local function do_lint(linter, args)
         vim.g['nvim_go#lint_issues_count'] = issues_count
         if #err_list > 0 then
             output.show_error(linter, table.concat(err_list, '\n'))
+        else
+            output.show_success("GoLint", "Lint finished.")
         end
         if config.options.lint_prompt_style == 'qf' then
             if #qf_list > 0 then
